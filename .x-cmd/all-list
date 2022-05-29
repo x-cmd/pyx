@@ -1,0 +1,4 @@
+curl https://pypi.org/simple |\
+    awk '{ if (match($0, "https://pypi.org/simple/[^/]+/")) { print substr($0, RSTART, RLENGTH) ;}  }' |\
+    awk -v FS=/ '{ print $(NF-1); }' >index.txt
+
